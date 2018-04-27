@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Success</title>
+</head>
+<body>
+  {% for current_user in user %}
+    <h1> Thanks for signing in {{ current_user.name }}! </h1>
+  {% endfor %}
+
+  <form action='logout' method='post'>
+    {% csrf_token %}
+    <input type='submit' value='logout'>
+  </form>
+</body>
+</html>

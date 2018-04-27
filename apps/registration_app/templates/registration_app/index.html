@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Landing Page</title>
+</head>
+<body>
+  {% if messages %}
+    <ul class='messages'>
+      {%for message in messages %}
+        <li{% if message.tags %} class='{{ message.tags }}' {% endif %}> {{message}}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <h2> Login Form </h2>
+  <form action='/landing/login', method='post'>
+    {% csrf_token %}
+    Email: <input type='text' name='email'>
+    Password: <input type='text' name='password'>
+    <input type='submit' name='login' value='Submit'>
+  </form>
+
+  <h2> Create new user! </h2>
+  <form action='/landing/create', method='post'>
+    {% csrf_token %}
+    Name: <input type='text' name='name'>
+    Email: <input type='text' name='email'>
+    Password: <input type='text' name='password'>
+    Password Confirm: <input type= 'text' name='password_confirm'>
+    <input type='submit' name='create' value='Submit'>
+  </form> 
+</body>
+</html>
